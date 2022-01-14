@@ -1,5 +1,7 @@
 from decision_tree import decision_tree
 from dtr import dtr
+from random_forest import random_forest
 
 decision_tree.execute()
 dtr.execute()
+random_forest.execute()
