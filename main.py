@@ -9,3 +9,9 @@ tree = DecisionTreeClassifier(max_depth=4, random_state=0)
 tree.fit(X_train, y_train)
 print("Accuracy on training set: {:.3f}".format(tree.score(X_train, y_train)))
 print("Accuracy on test set: {:.3f}".format(tree.score(X_test, y_test)))
+
+export_graphviz(tree, out_file="tree.dot", class_names=["malignant", "benign"], feature_names=cancer.feature_names,
+                impurity=False, filled=True)
+with open("tree.dot") as f:
+    dot_graph = f.read()
+graphviz.Source(dot_graph)
