@@ -17,3 +17,5 @@ def execute():
     print("X_test.shape: {}".format(X_test.shape))
     print("Decision function shape: {}".format(gbrt.decision_function(X_test).shape))
     print("Decision function:\n{}".format(gbrt.decision_function(X_test)[:6]))
+    print("Thresholded decision function:\n{}".format(gbrt.decision_function(X_test)>0))
+    print("Predictions:\n{}".format(gbrt.predict(X_test)))
