@@ -24,7 +24,7 @@ def execute():
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 5))
     mglearn.plots.plot_2d_separator(gbrt, X, ax=axes[0], alpha=.4, fill=True, cm=mglearn.cm2)
-    scores_image = mglearn.tools.plot_2d_scores(gbrt, X, ax=axes[0], alpha=.4, cm=mglearn.ReBl)
+    scores_image = mglearn.tools.plot_2d_scores(gbrt, X, ax=axes[1], alpha=.4, cm=mglearn.ReBl)
 
     for ax in axes:
         mglearn.discrete_scatter(X_test[:, 0], X_test[:, 1], y_test, markers='^', ax=ax)
@@ -32,6 +32,6 @@ def execute():
         ax.set_xlabel("Feature 0")
         ax.set_ylabel("Feature 1")
 
-    plt.colorbar(scores_image, ax=axes.tolist())
+    cbar = plt.colorbar(scores_image, ax=axes.tolist())
     axes[0].legend(["Test class 0", "Test class 1", "Train class 0", "Train class 1"], ncol=4, loc=(.1, 1.1))
     fig.savefig("decision_function/decision_function.png")
