@@ -22,6 +22,9 @@ def execute():
     print("Thresholded decision function:\n{}".format(gbrt.decision_function(X_test) > 0))
     print("Predictions:\n{}".format(gbrt.predict(X_test)))
 
+    print("Shape of probabilities: {}".format(gbrt.predict(X_test).shape))
+    print("Predicted probabilities:\n{}".format(gbrt.predict_proba(X_test[:6])))
+
     fig, axes = plt.subplots(1, 2, figsize=(13, 5))
     mglearn.plots.plot_2d_separator(gbrt, X, ax=axes[0], alpha=.4, fill=True, cm=mglearn.cm2)
     scores_image = mglearn.tools.plot_2d_scores(gbrt, X, ax=axes[1], alpha=.4, cm=mglearn.ReBl)
